@@ -30,7 +30,9 @@ gitlab:
 auth:
   environment: production
   providers:
-    guest: {}
+    guest:
+      userEntityRef: user:default/guest
+      dangerouslyAllowOutsideDevelopment: true
     gitlab:
       production:
         clientId: ${AUTH_GITLAB_CLIENT_ID}

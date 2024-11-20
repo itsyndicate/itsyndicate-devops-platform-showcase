@@ -54,7 +54,14 @@ integrations:
       token: ${GITLAB_TOKEN}
       baseUrl: https://${GITLAB_HOST}  
       apiBaseUrl: https://${GITLAB_HOST}/api/v4
+grafana:
+  # Publicly accessible domain
+  domain: localhost
 
+  # Is unified alerting enabled in Grafana?
+  # See: https://grafana.com/blog/2021/06/14/the-new-unified-alerting-system-for-grafana-everything-you-need-to-know/
+  # Optional. Default: false
+  unifiedAlerting: false
 proxy:
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
