@@ -105,7 +105,12 @@ catalog:
         host: ${GITLAB_HOST} # Identifies one of the hosts set up in the integrations
         orgEnabled: true
         group: itsyndicate-platform
-        allowInherited: true
+        restrictUsersToGroup: true
+        relations:
+          - INHERITED
+          - DESCENDANTS
+          - SHARED_FROM_GROUPS
+        includeUsersWithoutSeat: true
         schedule: # Same options as in SchedulerServiceTaskScheduleDefinition. Optional for the Legacy Backend System.
           # supports cron, ISO duration, "human duration" as used in code
           frequency: { minutes: 1 }
