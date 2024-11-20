@@ -17,7 +17,7 @@ backend:
   cors:
     origin: ${PROTOCOL}://${HOSTNAME}
   # config options: https://node-postgres.com/apis/client
- database:
+  database:
     client: better-sqlite3
     connection: ':memory:'
   reading:
