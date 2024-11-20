@@ -1,6 +1,6 @@
 services:
   backstage:
-    image: phosphorv/backstage:latest
+    image: backstage:latest
     ports:
       - "7007:7007"
     environment:
