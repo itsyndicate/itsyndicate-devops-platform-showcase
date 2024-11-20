@@ -5,7 +5,7 @@ kind: User
 metadata:
   name: guest
 spec:
-  memberOf: [itsyndicate-platform,guests,guest]
+  memberOf: [itsyndicate-platform,guests]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
@@ -19,7 +19,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: guest
+  name: itsyndicate-platform
 spec:
   type: team
   children: []

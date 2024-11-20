@@ -89,9 +89,6 @@ catalog:
   rules:
     - allow: [Component, API, System, Domain, Resource, Location, User, Group]
   locations:
-    # Kubernetes demo component
-    - type: url
-      target: https://github.com/mclarke47/dice-roller/blob/master/catalog-info.yaml
     - type: file
       target: ../../examples/org.yaml
   providers:
@@ -140,7 +137,6 @@ permission:
         - name: group:default/guests
       users:
         - name: group:default/backstage
-
         - name: group:default/guests
 events:
   http:
