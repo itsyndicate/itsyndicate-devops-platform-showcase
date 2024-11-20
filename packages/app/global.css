@@ -1,0 +1,6 @@
+.full-height-first-div > div:first-of-type{
+    height: 100%
+}
+.full-height-first-div{
+    height: 100%
+}

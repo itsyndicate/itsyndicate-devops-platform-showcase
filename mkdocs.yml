@@ -1,0 +1,7 @@
+site_name: Platform documentation
+repo_url: https://gitlab.itsyndicate.org/backstage/demo
+edit_uri: -/wikis
+plugins:
+  - techdocs-core
+nav:
+  - Home: home.md

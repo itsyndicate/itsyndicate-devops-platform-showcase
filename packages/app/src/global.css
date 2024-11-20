@@ -1,0 +1,9 @@
+.full-height-first-div > div:first-of-type{
+    height: 100%
+}
+.full-height-first-div{
+    height: 100%
+}
+.empty-search-div img{
+    height: 100% !important;
+}

@@ -1,0 +1,99 @@
+app:
+  # Should be the same as backend.baseUrl when using the `app-backend` plugin.
+  baseUrl: ${PROTOCOL}://${HOSTNAME}
+backend:
+  auth:
+    # This is the new section for configuring plugin-to-plugin key storage
+    pluginKeyStore:
+      type: static
+      static:
+        keys:
+          - publicKeyFile: /tmp/public.key
+            privateKeyFile: /tmp/private.key
+            keyId: some-custom-id
+  csp:
+    upgrade-insecure-requests: false
+    img-src: ["'self'", "https://itsyndicate.org", "https://gitlab.itsyndicate.org", "https://secure.gravatar.com"]
+  listen: ':7007'
+  # Note that the baseUrl should be the URL that the browser and other clients
+  # should use when communicating with the backend, i.e. it needs to be
+  # reachable not just from within the backend host, but from all of your
+  # callers. When its value is "http://localhost:7007", it's strictly private
+  # and can't be reached by others.
+  baseUrl: ${PROTOCOL}://${HOSTNAME}
+  # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
+  # all interfaces, the most permissive setting. The right value depends on your specific deployment.
+  cors:
+    origin: ${PROTOCOL}://${HOSTNAME}
+  # config options: https://node-postgres.com/apis/client
+  database:
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+      # https://node-postgres.com/features/ssl
+      # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
+      # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
+      # ssl:
+      #   ca: # if you have a CA file and want to verify it you can uncomment this section
+      #     $file: <file-path>/ca/server.crt
+  reading:
+    allow:
+      - host: ${GITLAB_HOSTNAME}
+gitlab:
+  allowedKinds:
+    - Component
+    - Resource
+    - AWSEnvironmentProvider
+auth:
+  environment: production
+  providers:
+    gitlab:
+      production:
+        clientId: ${AUTH_GITLAB_CLIENT_ID}
+        clientSecret: ${AUTH_GITLAB_CLIENT_SECRET}
+        audience: https://${GITLAB_HOSTNAME}
+        signIn:
+          resolvers:
+            - resolver: emailLocalPartMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
+scaffolder:
+  # see https://backstage.io/docs/features/software-templates/configuration for software template options
+  defaultAuthor:
+    name: ITSyndicate
+    email: itsyndicate@gmail.com
+#catalog:
+  # Overrides the default list locations from app-config.yaml as these contain example data.
+  # See https://backstage.io/docs/features/software-catalog/#adding-components-to-the-catalog for more details
+  # on how to get entities into the catalog.
+#  locations: []
+  
+catalog:
+  rules:
+    - allow:
+        - API
+        - Domain
+        - Component
+        - Location
+        - Resource
+        - System
+        - Template
+        - AWSEnvironment
+        - AWSEnvironmentProvider
+  providers:
+    backstageOpenapi:
+      plugins:
+        - catalog
+        - search
+    gitlab:
+      GitLabProvider:
+        host: ${GITLAB_HOSTNAME} # Identifies one of the hosts set up in the integrations
+        orgEnabled: true
+        allowInherited: true
+        schedule: # Same options as in SchedulerServiceTaskScheduleDefinition. Optional for the Legacy Backend System.
+          # supports cron, ISO duration, "human duration" as used in code
+          frequency: { minutes: 30 }
+          # supports ISO duration, "human duration" as used in code
+          timeout: { minutes: 3 }
