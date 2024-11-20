@@ -1,5 +1,6 @@
 services:
   backstage:
+    env_file: ".env"
     image: backstage:latest
     ports:
       - "7007:7007"
