@@ -51,7 +51,6 @@ import { catalogApiRef } from '@backstage/plugin-catalog-react';
 
 import { isGitlabAvailable, EntityGitlabReleasesCard, EntityGitlabMergeRequestStatsCard, EntityGitlabLanguageCard, EntityGitlabMergeRequestsTable, EntityGitlabPipelinesTable, EntityGitlabReadmeCard } from '@immobiliarelabs/backstage-plugin-gitlab';
 import { EntityGitlabPeopleCard } from '@immobiliarelabs/backstage-plugin-gitlab';
-import { EntityGrafanaAlertsCard, EntityGrafanaDashboardsCard } from '@backstage-community/plugin-grafana';
 import { EntityHighlightsCard } from '@rsc-labs/backstage-highlights-plugin';
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
@@ -188,21 +187,6 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       <CicdContent />
-    </EntityLayout.Route>
-
-    <EntityLayout.Route path="/monitoring" title="Monitoring">
-      <Grid container spacing={3} alignItems="stretch">
-        <Grid item md={6}>
-          {/* Grafana alert card start */}
-          <EntityGrafanaDashboardsCard />
-          {/* Grafana alert card end */}
-        </Grid>
-        <Grid item md={6}>
-          {/* Grafana alert card start */}
-          <EntityGrafanaAlertsCard />
-          {/* Grafana alert card end */}
-        </Grid>
-      </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/docs" title="Docs">

@@ -45,7 +45,6 @@ import { costInsightsAwsPlugin } from '@aws/cost-insights-plugin-for-backstage';
 import { themes, UnifiedThemeProvider } from '@backstage/theme';
 import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 import { ToolboxPage } from '@drodil/backstage-plugin-toolbox';
-export { grafanaPlugin } from '@backstage-community/plugin-grafana';
 import { CostInsightsPage } from '@backstage-community/plugin-cost-insights';
 import { SecurityPage } from './components/customs/SecurityPage';
 import { MonitoringPage } from './components/customs/MonitoringPage';

@@ -62,7 +62,6 @@ backend.add(import('@backstage/plugin-catalog-backend-module-gitlab-org'));
 backend.add(import('@backstage/plugin-auth-backend-module-gitlab-provider'))
 
 backend.add(import('@rsc-labs/backstage-highlights-plugin-backend'));
-backend.add(import('@axis-backstage/plugin-jira-dashboard-backend'));
 
 // backend.add(import('@aws/cost-insights-plugin-for-backstage-backend'));
 backend.add(gitlabPlugin);
