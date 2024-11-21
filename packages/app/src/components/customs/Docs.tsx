@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Box, Typography } from '@material-ui/core';
 import { Components } from 'react-markdown/lib/ast-to-react';
+import { useTheme } from '@material-ui/core/styles';
 
 interface MarkdownPageProps {
   fileName: string; // The file to fetch
@@ -14,7 +15,8 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = ({ fileName }) => {
   const [tableOfContents, setTableOfContents] = useState<
     { label: string; id: string; level: number }[]
   >([]);
-
+  const theme = useTheme();
+  const linkColor = theme.palette.type === 'dark' ? 'lightblue' : 'blue';
   useEffect(() => {
     fetch(fileName)
       .then((response) => response.text())
@@ -43,7 +45,9 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = ({ fileName }) => {
           setTableOfContents(toc);
         }
       })
-      .catch((err) => console.error(`Failed to load Markdown content from ${fileName}:`, err));
+      .catch((err) =>
+        console.error(`Failed to load Markdown content from ${fileName}:`, err),
+      );
   }, [fileName]);
 
   const components: Components = {
@@ -51,9 +55,21 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = ({ fileName }) => {
     h2: ({ children }) => renderHeading(children, 'h2'),
     h3: ({ children }) => renderHeading(children, 'h3'),
     h4: ({ children }) => renderHeading(children, 'h4'),
+    a: ({ href, title, children }) => (
+      <a
+        href={href}
+        title={title}
+        style={{ color: linkColor, textDecoration: 'underline' }}
+      >
+        {children}
+      </a>
+    ),
   };
 
-  const renderHeading = (children: React.ReactNode, tag: 'h1' | 'h2' | 'h3' | 'h4') => {
+  const renderHeading = (
+    children: React.ReactNode,
+    tag: 'h1' | 'h2' | 'h3' | 'h4',
+  ) => {
     const text = React.Children.toArray(children).join('');
     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
@@ -84,18 +100,29 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = ({ fileName }) => {
   return (
     <Content>
       <Box display="flex">
-        <Box flex="1" padding="16px" style={{ paddingTop: 0, marginLeft: '16px' }}>
+        <Box
+          flex="1"
+          padding="16px"
+          style={{ paddingTop: 0, marginLeft: '16px' }}
+        >
           <ReactMarkdown
             children={markdownContent}
             remarkPlugins={[remarkGfm]}
-            components={components} // Custom renderer for headings
+            components={components} // Custom renderer for headings and links
           />
         </Box>
         <Box minWidth="200px" padding="16px">
           <InfoCard title="Table of Contents">
             {tableOfContents.map((item) => (
-              <Box key={item.id} style={{ marginLeft: `${(item.level - 1) * 16}px` }}>
-                <a href={`#${item.id}`} onClick={(e) => handleLinkClick(e, item.id)}>
+              <Box
+                key={item.id}
+                style={{ marginLeft: `${(item.level - 1) * 16}px` }}
+              >
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleLinkClick(e, item.id)}
+                  style={{ textDecoration: 'underline' }}
+                >
                   {item.label}
                 </a>
               </Box>

@@ -96,8 +96,8 @@ catalog:
   rules:
     - allow: [Component, API, System, Domain, Resource, Location, User, Group]
   locations:
-    - type: file
-      target: ../../examples/org.yaml
+    - type: url
+      target: https://gitlab.com/itsyndicate-platform/backstage/-/blob/main/examples/org.yaml
   providers:
     backstage:
       enabled: false

@@ -24,51 +24,41 @@ const TabContent = styled(Box)(({ theme }) => ({
  * MonitoringPage
  * Main page component that includes tab navigation and routes to different monitoring sections.
  */
-export const MonitoringPage = () => {
-  const location = useLocation();
-
-  // Determine the active tab based on the current path
-  const getActiveTab = () => {
-    if (location.pathname.startsWith('/monitoring/metrics')) return '/monitoring/metrics';
-    return '/monitoring'; // Default to Overview
-  };
-
-  const activeTab = getActiveTab();
-
-  return (
-    <PageWithHeader themeId="tool" title="Monitoring, Logging and Alerting">
+export const MonitoringPage = () => (
+  <PageWithHeader themeId="tool" title="Monitoring, Logging and Alerting">
       <Content>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}>
-          <TabNavigation activeTab={activeTab} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          <TabNavigation />
           <SupportButton>Project monitoring page.</SupportButton>
         </div>
-        <TabContent>
-          <Routes>
-            <Route path="/" element={<DashboardsComponent />} />
-            <Route path="*" element={<Navigate to="/monitoring" replace />} />
-            <Route path='/docs' element={<MarkdownPage fileName={'/docs/home/monitoring.md'} />}/>
-          </Routes>
-        </TabContent>
+        <Routes>
+          <Route path="/" element={<DashboardsComponent />} />
+          <Route path="*" element={<Navigate to="/monitoring" replace />} />
+          <Route path='/docs' element={<MarkdownPage fileName={'/docs/home/monitoring.md'} />}/>
+        </Routes>
       </Content>
     </PageWithHeader>
-  );
-};
+);
 
 
 /**
  * TabNavigation
  * Component for rendering navigation tabs.
  */
-const TabNavigation = ({ activeTab }: { activeTab: string }) => (
-  <StyledTabs
-    value={activeTab}
-    aria-label="monitoring navigation tabs"
-    indicatorColor="primary"
-    textColor="primary"
-    variant="scrollable"
-    scrollButtons="auto"
-  >
+const TabNavigation = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  return (
+    <Tabs
+      value={currentPath}
+      aria-label="security navigation tabs"
+      variant="scrollable"
+      indicatorColor="primary"
+      textColor="primary"
+    >
     <Tab label="Overview" value="/monitoring" component={Link} to="/monitoring" />
     <Tab label="Docs" value="/monitoring/docs" component={Link} to="/monitoring/docs" />
-  </StyledTabs>
-);
+  </Tabs>
+)
+}
