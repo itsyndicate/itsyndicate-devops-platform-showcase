@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Page, Header, Content, InfoCard } from '@backstage/core-components';
 import { HeaderWorldClock } from '@backstage/plugin-home';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Box, Typography } from '@material-ui/core';
-import { Components } from 'react-markdown/lib/ast-to-react';
 import { MarkdownPage } from '../customs/Docs';
 
 const clockConfigs = [
@@ -33,7 +29,7 @@ export const HomePage = () => {
           customTimeFormat={timeFormat}
         />
       </Header>
-      <MarkdownPage fileName={'/home.md'} />
+      <MarkdownPage fileName={'/docs/index.md'} />
     </Page>
   );
 };

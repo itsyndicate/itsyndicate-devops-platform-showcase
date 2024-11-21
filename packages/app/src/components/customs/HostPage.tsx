@@ -50,7 +50,7 @@ export const Hosting = () => {
 
           {activeTab === 'docs' && (
             <Grid item xs={12}>
-              <MarkdownPage fileName={'/home.md'} />
+              <MarkdownPage fileName={'/docs/home/hosting.md'} />
             </Grid>
           )}
         </Grid>

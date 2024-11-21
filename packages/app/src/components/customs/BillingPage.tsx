@@ -58,7 +58,7 @@ export const Billing = () => {
 
           {activeTab === 'docs' && (
             <Grid item xs={12}>
-              <MarkdownPage fileName={'/home.md'} />
+              <MarkdownPage fileName={'/docs/home/Billing.md'} />
             </Grid>
           )}
         </Grid>

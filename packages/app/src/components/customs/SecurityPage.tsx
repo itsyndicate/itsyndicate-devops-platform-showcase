@@ -41,7 +41,7 @@ export const SecurityPage = () => (
       </div>
       <Routes>
         <Route path="/" element={<Overview />} />
-        <Route path='/docs' element={<MarkdownPage fileName={'/home.md'} />}/>
+        <Route path='/docs' element={<MarkdownPage fileName={'/docs/home/security.md'} />}/>
       </Routes>
     </Content>
   </PageWithHeader>

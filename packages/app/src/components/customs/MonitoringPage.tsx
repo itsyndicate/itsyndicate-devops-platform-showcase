@@ -46,7 +46,7 @@ export const MonitoringPage = () => {
           <Routes>
             <Route path="/" element={<DashboardsComponent />} />
             <Route path="*" element={<Navigate to="/monitoring" replace />} />
-            <Route path='/docs' element={<MarkdownPage fileName={'/home.md'} />}/>
+            <Route path='/docs' element={<MarkdownPage fileName={'/docs/home/monitoring.md'} />}/>
           </Routes>
         </TabContent>
       </Content>

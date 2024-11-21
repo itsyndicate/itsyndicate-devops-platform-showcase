@@ -60,6 +60,7 @@ import { useApi, identityApiRef } from '@backstage/core-plugin-api';
 import { useNavigate } from 'react-router-dom';
 import CodeIcon from '@material-ui/icons/Code';
 import { UserLinksCard } from '@itsyndicate/backstage-plugin-user-links';
+import { MarkdownPage } from '../customs/Docs';
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -383,10 +384,10 @@ const groupPage = (
         <Grid item xs={12} md={6}>
           <EntityMembersListCard />
         </Grid>
-         <Grid item xs={12} md={6}>
-          <EntityOwnershipCard/>
-        </Grid> 
       </Grid>
+    </EntityLayout.Route>
+    <EntityLayout.Route path="/docs" title="Docs">
+    <MarkdownPage fileName={'/docs/home/App-Development.md'} />
     </EntityLayout.Route>
   </EntityLayout>
 );

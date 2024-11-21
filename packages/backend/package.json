@@ -68,6 +68,7 @@
     "better-sqlite3": "^9.0.0",
     "node-gyp": "^10.0.0",
     "pg": "^8.11.3",
+    "remark-slug": "^8.0.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
