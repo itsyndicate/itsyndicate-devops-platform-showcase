@@ -1,7 +1,28 @@
 site_name: Platform documentation
-repo_url: https://gitlab.itsyndicate.org/backstage/demo
+repo_url: https://gitlab.com/itsyndicate-platform/backstage
 edit_uri: -/wikis
 plugins:
   - techdocs-core
 nav:
-  - Home: home.md
+  - Home: index.md
+  - App Development: home/App-Development.md
+  - Billing: home/Billing.md
+  - Backstage:
+      - Overview: home/backstage.md
+      - Configuration: home/backstage/configuration.md
+  - Hosting: home/hosting.md
+  - Monitoring: home/monitoring.md
+  - Security: home/security.md
+
+# Include additional content directories
+extra:
+  static_dir:
+    - uploads
+    - images
+
+# Customization
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true

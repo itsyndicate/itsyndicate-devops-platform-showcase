@@ -3,6 +3,10 @@ app:
   baseUrl: ${PROTOCOL}://${HOSTNAME}
 backend:
   csp:
+    connect-src:
+      - "'self'"
+      - 'http:'
+      - 'https:'
     upgrade-insecure-requests: false
     img-src: ["'self'", "https://itsyndicate.org", "https://gitlab.com", "https://secure.gravatar.com"]
   listen: ':7007'
@@ -15,6 +19,8 @@ backend:
   # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
   cors:
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
     origin: ${PROTOCOL}://${HOSTNAME}
   # config options: https://node-postgres.com/apis/client
   database:
