@@ -4,7 +4,7 @@ metadata:
   name:  itsyndicate-developer-platform
   description: Internal platform for developers
   annotations:
-    backstage.io/source-location: dir:.
+    backstage.io/source-location: url:https://gitlab.com/itsyndicate-platform/backstage
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
