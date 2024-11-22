@@ -2,6 +2,8 @@
 
 Welcome to the ITSyndicate Developer Platform! This guide will help you get started with Backstage, the internal developer portal we're using to centralize services and make it easier for our developers to collaborate and innovate.
 
+**The easiest way to try our showcase is to follow the link:** https://demoplatform.itsyndicate.org/
+
 ## Prerequisites
 
 Before starting, make sure you have the following installed on your local machine:
@@ -17,7 +19,7 @@ Before starting, make sure you have the following installed on your local machin
 Clone the ITSyndicate Developer Platform repository from GitLab:
 
 ```sh
-$ git clone https://gitlab.itsyndicate.org/backstage/demo.git
+$ git clone https://github.com/itsyndicate/itsyndicate-devops-platform-showcase.git
 $ cd demo
 ```
 
@@ -43,11 +45,6 @@ Update the environment variables in the `.env` file as needed. Then export them:
 $ export $(cat .env | xargs)
 ```
 
-If you are running the application in Docker, rename `.env.production.sample` to `.env.production` and update the environment variables as needed:
-
-```sh
-$ mv .env.production.sample .env.production
-```
 
 ### Step 4: Start the Development Server
 
@@ -71,19 +68,7 @@ This command will generate static assets in the `packages/app/dist` directory.
 
 ## Running with Docker
 
-### Step 0: Start PostgreSQ
 
-To start PostgreSQL , run the following command:
-
-```sh
-$ docker run --name postgres \
-  -e POSTGRES_USER=$(grep POSTGRES_USER .env.production | cut -d '=' -f2) \
-  -e POSTGRES_PASSWORD=$(grep POSTGRES_PASSWORD .env.production | cut -d '=' -f2) \
-  -e POSTGRES_DB=$(grep POSTGRES_DB .env.production | cut -d '=' -f2) \
-  -p 5432:5432 -d postgres:16.3
-```
-
-Ensure your `.env.production` file contains the correct PostgreSQL connection settings for this instance.
 
 ### Step 1: Build backstage
 
@@ -106,7 +91,7 @@ $ docker image build . -f packages/backend/Dockerfile --tag backstage
 Run the application in a Docker container:
 
 ```sh
-$ docker run -it -p 7007:7007 --env-file .env.production backstage
+$ docker run -it -p 7007:7007 --env-file .env backstage
 ```
 
 Docker is always configured for production use, and requires PostgreSQL as the database. Ensure your `.env.production` file contains the correct PostgreSQL connection settings.
