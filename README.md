@@ -4,14 +4,14 @@ The ITSyndicate DevOps Platform is a comprehensive solution designed to streamli
 
 ## Key Features:
 
-•	Unified Management Interface: A centralized platform to manage resources, tasks, and infrastructure with ease.
-•	CI/CD Integration: Automates deployment pipelines to ensure faster, error-free releases.
-•	Cost Transparency and Optimization: Provides detailed insights into project expenses, along with recommendations for cost-saving measures.
-•	Enhanced Security: Implements DevSecOps principles with automated vulnerability scanning, role-based access control, and compliance checks.
-•	Scalable Infrastructure: Uses Infrastructure as Code (IaC) to manage and provision infrastructure that adapts to project needs.
-•	Monitoring, logging, and Alerts: Real-time observability and alerts to detect and resolve issues proactively.
-•	Task management: Possibility to integrate your task system into the platform.
-•	Documentation: The right approach to maintaining documentation on a project.
+•	Unified Management Interface: A centralized platform to manage resources, tasks, and infrastructure with ease.  
+•	CI/CD Integration: Automates deployment pipelines to ensure faster, error-free releases.  
+•	Cost Transparency and Optimization: Provides detailed insights into project expenses, along with recommendations for cost-saving measures.  
+•	Enhanced Security: Implements DevSecOps principles with automated vulnerability scanning, role-based access control, and compliance checks.  
+•	Scalable Infrastructure: Uses Infrastructure as Code (IaC) to manage and provision infrastructure that adapts to project needs.  
+•	Monitoring, logging, and Alerts: Real-time observability and alerts to detect and resolve issues proactively.  
+•	Task management: It is possible to integrate your task system into the platform.  
+•	Documentation: The right approach to maintaining documentation on a project.  
 
 ## Demo Platform
 
