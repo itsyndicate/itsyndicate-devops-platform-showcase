@@ -119,3 +119,7 @@ Contributions are welcome! Please follow our [contributing guidelines](CONTRIBUT
 
 For more information about using and customizing Backstage, check out the official [Backstage documentation](https://backstage.io/docs).
 
+## Why Choose ITSyndicate?
+
+Our platform simplifies complex workflows, unifies team collaboration, and enhances project performance by leveraging our expertise in cloud engineering and DevOps methodologies. Whether you’re looking to optimize your cloud infrastructure or standardize development processes, ITSyndicate has the tools and expertise to help you succeed.
+
