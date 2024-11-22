@@ -2,17 +2,17 @@ app:
   title: ITSyndicate developer platform
   baseUrl: http://localhost:3000
   support:
-    url: https://${GITLAB_HOST}/backstage/platform/-/issues # Used by common ErrorPage
+    url: https://github.com/itsyndicate/itsyndicate-devops-platform-showcase/issues # Used by common ErrorPage
     items: # Used by common SupportButton component
       - title: Feedback form
         icon: unstarred
         links:
-          - url: https://${GITLAB_HOST}/backstage/platform/-/issues/new?issue[title]=Feedback:&issue[description]=Content:+%0A%0AAdmin+block:%0A%0A%2Flabel%20~%22Feedback%22%20
+          - url: https://github.com/itsyndicate/itsyndicate-devops-platform-showcase/issues/new?title=Feedback:&body=Content:%0A%0AAdmin+block:%0A%0A%23feedback
             title: Create feedback
       - title: Report issue
         icon: warning
         links:
-          - url: https://${GITLAB_HOST}/backstage/platform/-/issues/new?issue[title]=Issue:&issue[description]=Describe+your+issue:+%0APage:+%0A%0AAdmin+block:%0A%0A%2Flabel%20~%22type%3A%3AUser%20Story%22%20%0A%2Fassign%20%40volodymyr.v
+          - url: https://github.com/itsyndicate/itsyndicate-devops-platform-showcase/issues/new?title=Issue:&body=Describe+your+issue:%0A%0APage:%0A%0AAdmin+block:%0A%0A%40volodymyr-voitovych%20%23bug
             title: Create issue
 
 
@@ -20,12 +20,6 @@ app:
 
 backend:
   baseUrl: http://localhost:7007
-  plugins:
-    aws-ecs-clusters:
-      baseUrl: http://localhost:7007/api/aws-ecs-clusters
-    aws-cloudwatch:
-      baseUrl: http://localhost:7007/api/aws-cloudwatch
-      region: us-east-1
   listen:
     port: 7007
 #    port: 7007
